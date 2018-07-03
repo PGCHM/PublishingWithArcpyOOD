@@ -23,13 +23,10 @@ sdPath = r"C:\temp\UC2018\PublishingSamples\Output\%s.sd" % (serviceName)
 observedTileFile = r'Output\observed_' + serviceName + '_exportWholeMap.png'
 
 # list the AGO or enterprise url and credentials here
-#portalURL = r'https://portalhostds.ags.esri.com/gis'
-#svrTiles = r'https://serverhostds.esri.com/gis'
-portalURL = r'https://peservertf.esri.com/portal'
-svrTiles = r'https://peservertf.esri.com/server'
+portalURL = r'https://portalhostds.ags.esri.com/gis'
+svrTiles = r'https://serverhostds.esri.com/gis'
 cred_detail = []
-#with open("secure/portalhostds_pass.txt") as f:
-with open("secure/peservertf_pass.txt") as f:
+with open("secure/portalhostds_pass.txt") as f:
         for line in f:
             cred_detail.append(line.splitlines())
 username = cred_detail[0][0]

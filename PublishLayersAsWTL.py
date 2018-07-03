@@ -77,7 +77,7 @@ arcpy.StageService_server(sddraftPath, sdPath)
 arcpy.UploadServiceDefinition_server(sdPath, 'My Hosted Services', in_public = "PUBLIC", in_organization = "SHARE_ORGANIZATION")
 
 # Creates and updates tiles in an existing web tile layer cache. 
-input_service = r'https://tiles.arcgis.com/tiles/EguFTd9xPXEoDtC7/arcgis/rest/services/' + serviceName + r'/MapServer'
+input_service = r'https://tiles.arcgis.com/tiles/<Your Org Id>/arcgis/rest/services/' + serviceName + r'/MapServer'
 arcpy.ManageMapServerCacheTiles_server(input_service, [73957191, 36978595, 18489298], "RECREATE_ALL_TILES")
 
 ''' Getting the token
@@ -94,7 +94,7 @@ tokenStr = json.loads(urlopen(token_url + "?f=json", str.encode(query_string)).r
 
 '''  Validation - Save the tile image to local disk
 '''
-tile_url = "https://tiles.arcgis.com/tiles/EguFTd9xPXEoDtC7/arcgis/rest/services/%s/MapServer/tile/3/1/0?cacheKey=92d45a007db841cd&token=" % (serviceName)
+tile_url = "https://tiles.arcgis.com/tiles/<Your Org Id>/arcgis/rest/services/%s/MapServer/tile/3/1/0?cacheKey=92d45a007db841cd&token=" % (serviceName)
 f = open(observedTileFile,'wb')
 data = urlopen(tile_url + tokenStr).read()
 f.write(data)
